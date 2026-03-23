@@ -17,7 +17,7 @@ class TestHeap extends TestCase
     {
         $heap = new Heap();
         $arr = $heap->get();
-        assertArraysAreEqual([0], $arr);
+        assertArraysAreEqual([], $arr);
     }
 
     public function testHeapPushing(): void
@@ -30,7 +30,7 @@ class TestHeap extends TestCase
         $heap->push(177);
         $heap->push(3);
         $heapArr = $heap->get();
-        assertArraysAreEqual([0, 3, 7, 5, 12, 177, 12], $heapArr);
+        assertArraysAreEqual([3, 7, 5, 12, 177, 12], $heapArr);
     }
 
     public function testHeapPopping(): void
@@ -46,6 +46,21 @@ class TestHeap extends TestCase
         assertEquals(3, $val1);
         $val2 = $heap->pop();
         assertEquals(5, $val2);
-        assertArraysAreEqual([0, 7, 12, 12, 177], $heap->get());
+        assertArraysAreEqual([7, 12, 12, 177], $heap->get());
+    }
+
+    public function testHeapHeapify(): void
+    {
+        $arr = [12, 3, 7, 12, 5, 177];
+        $heap = new Heap();
+        $heap->heapify($arr);
+        assertArraysAreEqual([3, 5, 12, 7, 177, 12], $heap->get());
+    }
+
+    public function testHeapHeapifyWithEmptyArray(): void
+    {
+        $heap = new Heap();
+        $heap->heapify([]);
+        assertArraysAreEqual([], $heap->get());
     }
 }
