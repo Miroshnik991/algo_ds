@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace tests\DS;
+namespace DS;
 
 require_once 'vendor/autoload.php';
 
