@@ -9,7 +9,10 @@
     "autoload": {
       "psr-4": {
         "src\\": "src/"
-      }
+      },
+      "files": [
+        "src/Algorithms/Sorting/sortingHelper.php"
+      ]
   },
   "minimum-stability": "stable",
   "require-dev": {
